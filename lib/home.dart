@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 import 'model/products_repository.dart';
 import 'model/product.dart';
+import 'supplemental/asymmetric_view.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -24,6 +25,8 @@ class HomePage extends StatelessWidget {
     return products.map((product) {
         return Card(
           // TODO: Adjust card heights (103)
+          // 去除卡片下阴影
+          elevation: 0.0,
           child: Column(
             // TODO: Center items on the card (103)
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,6 +80,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // TODO: Add app bar (102)
       appBar: AppBar(
+        brightness: Brightness.light,
         // TODO: Add buttons and title (102)
         leading: IconButton(
           icon: Icon(Icons.menu, semanticLabel: 'menu'),
@@ -103,6 +107,7 @@ class HomePage extends StatelessWidget {
 
       ),
       // TODO: Add a grid view (102)
+      // body:AsymmetricView(products: ProductsRepository.loadProducts(Category.all)),
       body:GridView.count(
         crossAxisCount: 2,
         padding: EdgeInsets.all(16.0),

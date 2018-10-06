@@ -69,6 +69,11 @@ class _LoginPageState extends State<LoginPage> {
                 // TODO: Add buttons (101)
                 FlatButton(
                   child: Text('CANCEL'),
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(7.0)
+                    )
+                  ),
                   onPressed: () {
                     // TODO: Clear the text fields (101)
                     // 添加命令以清除FlatButton onPressed:函数中的每个控制器
@@ -81,6 +86,13 @@ class _LoginPageState extends State<LoginPage> {
                 // TODO: Add a beveled rectangular border to NEXT (103)
                 RaisedButton(
                   child: Text('NEXT'),
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(7.0)
+                    )
+                  ),
+                  // 添加按钮阴影
+                  elevation: 8.0,
                   onPressed: () {
                     // TODO: Show the next page (101) 
                     // 登录进入子页
