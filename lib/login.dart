@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './colors.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -35,9 +36,14 @@ class _LoginPageState extends State<LoginPage> {
             // 添加登录内容
             // InputDecoration 意味着文本字段的背景被轻轻填充以帮助人们识别文本字段的点击或触摸目标区域
             // [Name]
-            TextField(
-              controller: this._usernameController,
-              decoration: InputDecoration(filled: true, labelText: 'Username')
+            AccentColorOverride(
+              color: kShrineBrown900,
+              child: TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                ),
+              ),
             ),
 
             // 空间隔距
@@ -45,10 +51,14 @@ class _LoginPageState extends State<LoginPage> {
             
             // 密码框 obscureText: true值会自动替换用户使用项目符号键入的输入
             // [Password]
-            TextField(
-              controller: this._passwordController,
-              decoration: InputDecoration(filled: true, labelText: 'Password'),
-              obscureText: true,
+            AccentColorOverride(
+              color: kShrineBrown900,
+              child: TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                ),
+              ),
             ),
 
             // TODO: Add button bar (101)
@@ -92,3 +102,19 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 // TODO: Add AccentColorOverride (103)
+/// 特殊的类重写的强调颜色的窗口小部件 PrimaryVariant
+class AccentColorOverride extends StatelessWidget {
+  const AccentColorOverride({Key key, this.color, this.child})
+      : super(key: key);
+
+  final Color color;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      child: child,
+      data: Theme.of(context).copyWith(accentColor: color),
+    );
+  }
+}
