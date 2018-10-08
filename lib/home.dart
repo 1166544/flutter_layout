@@ -7,7 +7,6 @@ import 'supplemental/asymmetric_view.dart';
 
 class HomePage extends StatelessWidget {
 
-  // TODO: Make a collection of cards (102)
   /// 封装生成任意数量的空卡，并返回一个卡列表
   /// * [context] 执行上下文
   List<Card> _buildGridCards(BuildContext context) {
